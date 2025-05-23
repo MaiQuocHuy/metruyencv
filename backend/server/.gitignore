@@ -1,0 +1,17 @@
+node_modules
+.idea
+.vscode
+.history
+.DS_Store
+dist
+docs
+build
+*.log
+.*-audit.json
+# local env files
+.env
+.env.local
+.env.*.local
+.qodo
+
+.early.coverage

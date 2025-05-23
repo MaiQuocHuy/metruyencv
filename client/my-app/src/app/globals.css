@@ -1,0 +1,304 @@
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@variant dark (&:is(.dark *));
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  @apply text-sm;
+}
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --color-manga: hsl(var(--manga));
+  --color-manga-dark: hsl(var(--manga-dark));
+  --color-manga-light: hsl(var(--manga-light));
+  --color-manga-50: hsl(var(--manga-50));
+  --color-manga-100: hsl(var(--manga-100));
+  --color-manga-200: hsl(var(--manga-200));
+  --color-manga-300: hsl(var(--manga-300));
+  --color-manga-400: hsl(var(--manga-400));
+  --color-manga-500: hsl(var(--manga-500));
+  --color-manga-600: hsl(var(--manga-600));
+  --color-manga-700: hsl(var(--manga-700));
+  --color-manga-800: hsl(var(--manga-800));
+  --color-manga-900: hsl(var(--manga-900));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100%: {
+      transform: 'translateY(0)';
+    }
+    ,
+		50%: {
+      transform: 'translateY(-10px)';
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+
+@layer utilities {
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 260 25% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 260 25% 16%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 260 25% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 250 95% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 260 10% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 260 20% 20%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 260 15% 25%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 260 15% 25%;
+    --input: 260 15% 25%;
+    --ring: 260 85% 65%;
+
+    --radius: 0.5rem;
+
+    --manga: 260 95% 65%; /* DEFAULT: #8B5CF6 */
+    --manga-dark: 260 70% 50%; /* dark: #6D28D9 */
+    --manga-light: 260 90% 90%; /* light: #DDD6FE */
+    --manga-50: 260 100% 98%; /* 50: #F5F3FF */
+    --manga-100: 260 90% 95%; /* 100: #EDE9FE */
+    --manga-200: 260 90% 90%; /* 200: #DDD6FE */
+    --manga-300: 260 85% 85%; /* 300: #C4B5FD */
+    --manga-400: 260 80% 80%; /* 400: #A78BFA */
+    --manga-500: 260 95% 65%; /* 500: #8B5CF6 */
+    --manga-600: 260 70% 60%; /* 600: #7C3AED */
+    --manga-700: 260 70% 50%; /* 700: #6D28D9 */
+    --manga-800: 260 70% 40%; /* 800: #5B21B6 */
+    --manga-900: 260 70% 35%; /* 900: #4C1D95 */
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  html,
+  body,
+  #root,
+  .app {
+    height: 100%;
+    width: 100%;
+    @apply text-sm;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-manga-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-manga-500;
+  }
+}
+
+@layer components {
+  .manga-card {
+    @apply hover:shadow-manga-500/20 relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-lg;
+  }
+
+  .manga-card-image {
+    @apply aspect-[3/4] w-full object-cover transition-transform duration-300 group-hover:scale-105;
+  }
+
+  .manga-card-overlay {
+    @apply absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100;
+  }
+
+  .manga-heading {
+    @apply from-manga-300 to-manga-500 inline-block bg-gradient-to-r bg-clip-text text-2xl font-bold text-transparent md:text-3xl;
+  }
+
+  .manga-section {
+    @apply px-4 py-8 md:px-6 md:py-12;
+  }
+
+  .nav-link {
+    @apply text-foreground hover:text-manga-300 after:bg-manga-500 relative px-3 py-2 text-sm font-medium transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-[2px] after:scale-x-0 after:transition-transform hover:after:scale-x-100;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+}
